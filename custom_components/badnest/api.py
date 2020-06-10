@@ -219,6 +219,7 @@ class NestAPI():
         self._check_request(r)
 
         self._czfe_url = r.json()["service_urls"]["urls"]["czfe_url"]
+        _LOGGER.debug(f"app_launch results: {r.text}")
 
         buckets = r.json()['updated_buckets'][0]['value']['buckets']
         for bucket in buckets:
