@@ -74,7 +74,8 @@ async def async_setup_platform(hass,
     api = hass.data[DOMAIN]['api']
 
     thermostats = []
-    _LOGGER.info("Adding thermostats")
+    nb_thermostats = len(api['thermostats'])
+    _LOGGER.info(f"Adding {nb_thermostats} thermostat(s)")
     for thermostat in api['thermostats']:
         _LOGGER.info(f"Adding nest thermostat uuid: {thermostat}")
         thermostats.append(NestClimate(thermostat, api))
